@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([AuthStatusMiddleware::class])->group(
     function () {
-        Route::get('/signup', [SignupController::class, 'index'])->name('signup');
+        
         Route::get('/userlist', [UserListController::class, 'index'])->name('userList');
         Route::get('/userprofile', [ProfileController::class, 'index'])->name('userProfile');
         Route::get('/', [IndexController::class, 'index'])->name('index');
@@ -20,7 +20,8 @@ Route::middleware([AuthStatusMiddleware::class])->group(
         Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     }
 );
-
+Route::get('/signup', [SignupController::class, 'index'])->name('signup');
+Route::post('/signup', [SignupController::class, 'register'])->name('signup.post');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 

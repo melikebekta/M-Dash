@@ -796,7 +796,7 @@
                                                 </div>
                                                 <div class="truncate ltr:pl-4 rtl:pr-4">
                                                     <h4 class="text-base">
-                                                       {{ Auth::user()->username}}<span class="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
+                                                       {{ Auth::user()->name}}<span class="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
                                                     </h4>
                                                     <a
                                                         class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white"

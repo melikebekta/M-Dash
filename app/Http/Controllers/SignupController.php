@@ -47,17 +47,11 @@ class SignupController extends Controller
         $validate['password'] = bcrypt($validate['password']);
 
         try {
-            // Kullanıcıyı oluşturma
             $user = User::create($validate);
-
-            // Kullanıcıyı oturum açtırma
             Auth::login($user);
-
-            // Başarı mesajı
             return redirect()->route('index')
                 ->with('success', 'Kayıt başarıyla oluşturuldu!');
         } catch (\Exception $e) {
-            // Hata mesajı
             return redirect()->back()
                 ->with('error', 'Kayıt sırasında bir hata oluştu: ' . $e->getMessage());
         }

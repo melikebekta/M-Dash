@@ -8,6 +8,6 @@ class AddController extends Controller
 {
     public function index()
     {
-        return view('docAdd');
+        return view('invoiceAdd');
     }
 }

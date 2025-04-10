@@ -236,8 +236,6 @@
             });
         </script>
     @endif
-
-    <!-- Hata mesajlarını göstermek için -->
     @if ($errors->any())
         <script>
             Swal.fire({
@@ -248,6 +246,7 @@
             });
         </script>
     @endif
+
 
 </body>
 

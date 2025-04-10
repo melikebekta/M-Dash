@@ -506,7 +506,7 @@
                                         </button>
                                         <ul x-cloak x-show="activeDropdown === 'invoice'" x-collapse class="sub-menu text-gray-500">
                                             <li>
-                                                <a href="{{route('userList')}}">Faturaları Listele</a>
+                                                <a href="{{route('invoiceList')}}">Faturaları Listele</a>
                                             </li>
                                             <li>
                                                 <a href="{{route('add')}}">Fatura Ekle</a>

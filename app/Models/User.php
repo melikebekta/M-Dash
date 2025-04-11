@@ -17,4 +17,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function getUser(){
+        return $this->hasOne('App\Models\User','id','user_id');
+     } 
 }

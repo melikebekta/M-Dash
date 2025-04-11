@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([AuthStatusMiddleware::class])->group(
     function () {
-        
-        Route::get('/invoicelist', [InvoiceListController::class, 'index'])->name('invoiceList');
+
+
+        Route::get("/invoicelist", [InvoiceListController::class, "index"])->name('invoiceList');
+        Route::post('/invoicelist', [InvoiceListController::class, 'delete'])->name('invoiceList.delete');
         Route::get('/userprofile', [ProfileController::class, 'index'])->name('userProfile');
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get('/add', [AddController::class, 'index'])->name('add');
+        Route::post('/add', [AddController::class, 'store'])->name('add.post');
         Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     }
 );

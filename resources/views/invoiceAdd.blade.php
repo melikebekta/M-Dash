@@ -2,142 +2,146 @@
 @section('content')
     <!-- start main content section -->
     <div x-data="invoiceAdd">
-        <div class="flex flex-col gap-2.5 xl:flex-row">
-            <div class="panel flex-1 px-0 py-6 ltr:lg:mr-6 rtl:lg:ml-6">
-                <div class="flex flex-wrap justify-between px-4">
-                    <div class="mb-6 w-full lg:w-1/2">
-                        <div class="flex shrink-0 items-center text-black dark:text-white">
-                            <img src="assets/images/logo.svg" alt="image" class="w-14" />
+        <form action="{{ route('add.post') }}" method="POST">
+            @csrf
+            <div class="flex flex-col gap-2.5 xl:flex-row">
+                <div class="panel flex-1 px-0 py-6 ltr:lg:mr-6 rtl:lg:ml-6">
+                    <div class="flex flex-wrap justify-between px-4">
+                        <div class="mb-6 w-full lg:w-1/2">
+                            <div class="flex shrink-0 items-center text-black dark:text-white">
+                                <img src="assets/images/logo.svg" alt="image" class="w-14" />
+                            </div>
+                            <div class="mt-6 space-y-1 text-gray-500 dark:text-gray-400">
+                                <div>13 Bez Sokak, Kıbrıs Bahçeleri, Bursa, 16200, TR</div>
+                                <div>m-dash@gmail.com</div>
+                                <div>+90555 555 5555</div>
+                            </div>
                         </div>
-                        <div class="mt-6 space-y-1 text-gray-500 dark:text-gray-400">
-                            <div>13 Bez Sokak, Kıbrıs Bahçeleri, Bursa, 16200, TR</div>
-                            <div>m-dash@gmail.com</div>
-                            <div>+90555 555 5555</div>
+                        <div class="w-full lg:w-1/2 lg:max-w-fit">
+                            <div class="flex items-center">
+                                <label for="number" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Numarası</label>
+                                <input id="number" type="text" name="doc_number" class="form-input w-2/3 lg:w-[250px]"
+                                    placeholder="#8801" x-model="params.invoiceNo" />
+                            </div>
+                            <div class="mt-4 flex items-center">
+                                <label for="invoiceLabel" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Adı</label>
+                                <input id="invoiceLabel" type="text" name="doc_name" class="form-input w-2/3 lg:w-[250px]"
+                                    placeholder="Fatura İsmini Giriniz" x-model="params.title" />
+                            </div>
+                            <div class="mt-4 flex items-center">
+                                <label for="startDate" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Tarihi</label>
+                                <input id="startDate" type="date" name="doc_date" class="form-input w-2/3 lg:w-[250px]"
+                                    x-model="params.invoiceDate" />
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2 lg:max-w-fit">
-                        <div class="flex items-center">
-                            <label for="number" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Numarası</label>
-                            <input id="number" type="text" name="inv-num" class="form-input w-2/3 lg:w-[250px]"
-                                placeholder="#8801" x-model="params.invoiceNo" />
-                        </div>
-                        <div class="mt-4 flex items-center">
-                            <label for="invoiceLabel" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Adı</label>
-                            <input id="invoiceLabel" type="text" name="inv-label" class="form-input w-2/3 lg:w-[250px]"
-                                placeholder="Fatura İsmini Giriniz" x-model="params.title" />
-                        </div>
-                        <div class="mt-4 flex items-center">
-                            <label for="startDate" class="mb-0 flex-1 ltr:mr-2 rtl:ml-2">Fatura Tarihi</label>
-                            <input id="startDate" type="date" name="inv-date" class="form-input w-2/3 lg:w-[250px]"
-                                x-model="params.invoiceDate" />
+                    <hr class="my-6 border-[#e0e6ed] dark:border-[#1b2e4b]" />
+                    <div class="mt-8 px-4">
+                        <div class="flex flex-col justify-between lg:flex-row">
+                            <div class="mb-6 w-full lg:w-1/2 ltr:lg:mr-6 rtl:lg:ml-6">
+                                <div class="text-lg font-semibold">Faturanın Kesileceği Kişi</div>
+                                <div class="mt-4 flex items-center">
+                                    <label for="reciever-name" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Ad Soyad</label>
+                                    <input id="reciever-name" type="text" name="customer_name" class="form-input flex-1"
+                                        x-model="params.to.name" placeholder="Ad Soyad giriniz" />
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <label for="reciever-email" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">E-posta</label>
+                                    <input id="reciever-email" type="email" name="customer_email" class="form-input flex-1"
+                                        x-model="params.to.email" placeholder="E-posta adresinizi giriniz" />
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <label for="reciever-address" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Adres</label>
+                                    <input id="reciever-address" type="text" name="customer_address"
+                                        class="form-input flex-1" x-model="params.to.address" placeholder="Adres giriniz" />
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <label for="reciever-number" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Telefon
+                                        Numarası</label>
+                                    <input id="reciever-number" type="text" name="customer_phone" class="form-input flex-1"
+                                        x-model="params.to.phone" placeholder="Telefon Numaranızı giriniz" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <hr class="my-6 border-[#e0e6ed] dark:border-[#1b2e4b]" />
-                <div class="mt-8 px-4">
-                    <div class="flex flex-col justify-between lg:flex-row">
-                        <div class="mb-6 w-full lg:w-1/2 ltr:lg:mr-6 rtl:lg:ml-6">
-                            <div class="text-lg font-semibold">Faturanın Kesileceği Kişi</div>
-                            <div class="mt-4 flex items-center">
-                                <label for="reciever-name" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Ad Soyad</label>
-                                <input id="reciever-name" type="text" name="reciever-name" class="form-input flex-1"
-                                    x-model="params.to.name" placeholder="Ad Soyad giriniz" />
-                            </div>
-                            <div class="mt-4 flex items-center">
-                                <label for="reciever-email" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">E-posta</label>
-                                <input id="reciever-email" type="email" name="reciever-email" class="form-input flex-1"
-                                    x-model="params.to.email" placeholder="E-posta adresinizi giriniz" />
-                            </div>
-                            <div class="mt-4 flex items-center">
-                                <label for="reciever-address" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Adres</label>
-                                <input id="reciever-address" type="text" name="reciever-address" class="form-input flex-1"
-                                    x-model="params.to.address" placeholder="Adres giriniz" />
-                            </div>
-                            <div class="mt-4 flex items-center">
-                                <label for="reciever-number" class="mb-0 w-1/3 ltr:mr-2 rtl:ml-2">Telefon Numarası</label>
-                                <input id="reciever-number" type="text" name="reciever-number" class="form-input flex-1"
-                                    x-model="params.to.phone" placeholder="Telefon Numaranızı giriniz" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-6 w-full xl:mt-0 xl:w-96">
-                <div class="panel mb-5">
-                    <div x-data="{
-                        item: { quantity: 1, amount: 0 },
-                        tax: 0,
-                        discount: 0,
-                        shippingCharge: 0,
-                        paidStatus: false, // Ödeme durumu (false = ödenmedi, true = ödendi)
-                        get total() {
-                            // Ürün tutarı
-                            let subtotal = this.item.quantity * this.item.amount;
-                            // Vergi ekleme
-                            let taxAmount = subtotal * (this.tax / 100);
-                            // İskonto hesaplama
-                            let discountAmount = subtotal * (this.discount / 100);
-                            // Toplam tutar (Vergi, iskonto ve kargo ücreti ekleniyor)
-                            let total = subtotal + taxAmount - discountAmount + parseFloat(this.shippingCharge || 0);
-                            return total.toFixed(2);
-                        }
-                    }" class="mt-4">
 
-                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                            <div>
-                                <label for="quantity">Adet</label>
-                                <input type="number" id="quantity" class="form-input w-32" placeholder="Quantity"
-                                    x-model.number="item.quantity" />
-                            </div>
-                            <div>
-                                <label for="price">Adet Fiyatı</label>
-                                <input type="text" id="price" class="form-input w-32" placeholder="Price"
-                                    x-model.number="item.amount" />
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
+                <div class="mt-6 w-full xl:mt-0 xl:w-96">
+                    <div class="panel mb-5">
+                        <div x-data="{
+                                    item: { quantity: 1, amount: 0 },
+                                    tax: 0,
+                                    discount: 0,
+                                    shippingCharge: 0,
+                                    paidStatus: false, // Ödeme durumu (false = ödenmedi, true = ödendi)
+                                    get total() {
+                                        // Ürün tutarı
+                                        let subtotal = this.item.quantity * this.item.amount;
+                                        // Vergi ekleme
+                                        let taxAmount = subtotal * (this.tax / 100);
+                                        // İskonto hesaplama
+                                        let discountAmount = subtotal * (this.discount / 100);
+                                        // Toplam tutar (Vergi, iskonto ve kargo ücreti ekleniyor)
+                                        let total = subtotal + taxAmount - discountAmount + parseFloat(this.shippingCharge || 0);
+                                        return total.toFixed(2);
+                                    }
+                                }" class="mt-4">
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
                                 <div>
-                                    <label for="tax">Vergi(%) </label>
-                                    <input id="tax" type="number" name="tax" class="form-input"
-                                        placeholder="Vergi oranını giriniz" x-model.number="tax" />
+                                    <label for="quantity">Adet</label>
+                                    <input type="number" id="quantity" name="quantity" class="form-input w-32"
+                                        placeholder="Quantity" x-model.number="item.quantity" />
                                 </div>
                                 <div>
-                                    <label for="discount">İskonto(%) </label>
-                                    <input id="discount" type="number" name="discount" class="form-input"
-                                        placeholder="İskonto" x-model.number="discount" />
+                                    <label for="price">Adet Fiyatı</label>
+                                    <input type="text" id="unit_price" name="unit_price" class="form-input w-32"
+                                        placeholder="Price" x-model.number="item.amount" />
                                 </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                                    <div>
+                                        <label for="tax">Vergi(%) </label>
+                                        <input id="tax" type="number" name="tax" class="form-input"
+                                            placeholder="Vergi oranını giriniz" x-model.number="tax" />
+                                    </div>
+                                    <div>
+                                        <label for="discount">İskonto(%) </label>
+                                        <input id="discount" type="number" name="discount" class="form-input"
+                                            placeholder="İskonto" x-model.number="discount" />
+                                    </div>
+                                    <div>
+                                        <label for="shipping-charge">Kargo Ücreti(₺) </label>
+                                        <input id="shipping-charge" type="number" name="shipping_charge" class="form-input"
+                                            placeholder="Gönderim ücreti varsa giriniz" x-model.number="shippingCharge" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
                                 <div>
-                                    <label for="shipping-charge">Kargo Ücreti(₺) </label>
-                                    <input id="shipping-charge" type="number" name="shipping-charge" class="form-input"
-                                        placeholder="Gönderim ücreti varsa giriniz" x-model.number="shippingCharge" />
+                                    <label for="total">Toplam</label>
+                                    <label x-text="`₺${total}`" class="font-semibold"></label>
+                                    <input type="hidden" name="total_price" :value="total" />
                                 </div>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex justify-between items-center">
-                            <div>
-                                <label for="total">Toplam</label>
-                                <label x-text="`₺${total}`" class="font-semibold"></label>
-                            </div>
-                            <div>
+
                                 <label for="payment-status">Ödeme Durumu</label>
                                 <span :class="paidStatus ? 'text-green-500' : 'text-red-500'" class="font-semibold"
                                     x-text="paidStatus ? 'Ödendi' : 'Ödenmedi'"></span>
                                 <button type="button" @click="paidStatus = !paidStatus"
                                     class="ml-2 px-2 py-1 bg-blue-500 text-black rounded">
-                                    👈🏻 
+                                    👈🏻
                                 </button>
+                                <input type="hidden" name="status" :value="paidStatus ? 'Ödendi' : 'Ödenmedi'" />
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
                 <div class="panel">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-1">
-                        <button type="button" class="btn btn-success w-full gap-2">
+                        <button type="submit" class="btn btn-success w-full gap-2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="h-5 w-5 shrink-0 ltr:mr-2 rtl:ml-2">
                                 <path
@@ -151,9 +155,50 @@
                             </svg>
                             Kaydet
                         </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Başarılı!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
 
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata!',
+                text: '{{ session('error') }}',
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    @endif
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata!',
+                text: '@foreach ($errors->all() as $error) {{ $error }}@endforeach',
+                showConfirmButton: true
+            });
+        </script>
+    @endif
 
-                        <!-- <a href="apps-invoice-preview.html" class="btn btn-primary w-full gap-2">
+    <!-- end main content section -->
+@endsection
+<!-- <a href="apps-invoice-preview.html" class="btn btn-primary w-full gap-2">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                                     class="h-5 w-5 shrink-0 ltr:mr-2 rtl:ml-2">
                                                     <path opacity="0.5"
@@ -165,12 +210,3 @@
                                                 </svg>
                                                 Görüntüle
                                             </a> -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end main content section -->
-    </div>
-@endsection

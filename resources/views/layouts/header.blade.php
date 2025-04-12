@@ -126,12 +126,12 @@
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         </a>
-                        <h4 class="mb-1 dark:text-white">TEMPLATE CUSTOMIZER</h4>
-                        <p class="text-white-dark">Set preferences that will be cookied for your live preview demonstration.</p>
+                        <h4 class="mb-1 text-white-dark">TEMAYI DÜZENLE</h4>
+                        <p class="text-white-dark">Canlı önizleme gösteriminiz için çerezlerin kullanılacağı tercihleri ​​ayarlayın.</p>
                     </div>
                     <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Color Scheme</h5>
-                        <p class="text-xs text-white-dark">Overall light or dark presentation.</p>
+                        <h5 class="mb-1 text-base leading-none text-white-dark">Renk Şeması</h5>
+                        <p class="text-xs text-white-dark">Genel olarak açık veya koyu sunum.</p>
                         <div class="mt-3 grid grid-cols-3 gap-2">
                             <button
                                 type="button"
@@ -181,7 +181,7 @@
                                         stroke-linecap="round"
                                     ></path>
                                 </svg>
-                                Light
+                                Açık 
                             </button>
                             <button
                                 type="button"
@@ -202,7 +202,7 @@
                                         fill="currentColor"
                                     ></path>
                                 </svg>
-                                Dark
+                                Koyu
                             </button>
                             <button
                                 type="button"
@@ -226,14 +226,14 @@
                                     <path opacity="0.5" d="M22 21H2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
                                     <path opacity="0.5" d="M15 15H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
                                 </svg>
-                                System
+                                Sistem
                             </button>
                         </div>
                     </div>
 
                     <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Navigation Position</h5>
-                        <p class="text-xs text-white-dark">Select the primary navigation paradigm for your app.</p>
+                        <h5 class="mb-1 text-base leading-none text-white-dark">Navigasyon Pozisyonu</h5>
+                        <p class="text-xs text-white-dark">Uygulama içi nasıl olsun.</p>
                         <div class="mt-3 grid grid-cols-3 gap-2">
                             <button
                                 type="button"
@@ -241,7 +241,7 @@
                                 :class="[$store.app.menu === 'horizontal' ? 'btn-primary' :'btn-outline-primary']"
                                 @click="$store.app.toggleMenu('horizontal')"
                             >
-                                Horizontal
+                            Yatay
                             </button>
                             <button
                                 type="button"
@@ -249,7 +249,7 @@
                                 :class="[$store.app.menu === 'vertical' ? 'btn-primary' :'btn-outline-primary']"
                                 @click="$store.app.toggleMenu('vertical')"
                             >
-                                Vertical
+                            Dikey
                             </button>
                             <button
                                 type="button"
@@ -257,7 +257,7 @@
                                 :class="[$store.app.menu === 'collapsible-vertical' ? 'btn-primary' :'btn-outline-primary']"
                                 @click="$store.app.toggleMenu('collapsible-vertical')"
                             >
-                                Collapsible
+                            Katlanabilir
                             </button>
                         </div>
                         <div class="mt-5 text-primary">
@@ -269,13 +269,13 @@
                                     class="form-checkbox"
                                     @change="$store.app.toggleSemidark()"
                                 />
-                                <span>Semi Dark (Sidebar & Header)</span>
+                                <span>Yarı Koyu (Kenar Çubuğu ve Başlık)</span>
                             </label>
                         </div>
                     </div>
                     <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Layout Style</h5>
-                        <p class="text-xs text-white-dark">Select the primary layout style for your app.</p>
+                        <h5 class="mb-1 text-base leading-none text-white-dark">Düzen Stili</h5>
+                        <p class="text-xs text-white-dark">Uygulamanız için birincil düzen stilini seçin.</p>
                         <div class="mt-3 flex gap-2">
                             <button
                                 type="button"
@@ -283,7 +283,7 @@
                                 :class="[$store.app.layout === 'boxed-layout' ? 'btn-primary' :'btn-outline-primary']"
                                 @click="$store.app.toggleLayout('boxed-layout')"
                             >
-                                Box
+                                Kutulu
                             </button>
                             <button
                                 type="button"
@@ -291,13 +291,13 @@
                                 :class="[$store.app.layout === 'full' ? 'btn-primary' :'btn-outline-primary']"
                                 @click="$store.app.toggleLayout('full')"
                             >
-                                Full
+                                Tam Ekran
                             </button>
                         </div>
                     </div>
                     <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Direction</h5>
-                        <p class="text-xs text-white-dark">Select the direction for your app.</p>
+                        <h5 class="mb-1 text-base leading-none text-white-dark">Yön</h5>
+                        <p class="text-xs text-white-dark">Uygulamanız için yönü seçin.</p>
                         <div class="mt-3 flex gap-2">
                             <button
                                 type="button"
@@ -319,12 +319,12 @@
                     </div>
 
                     <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Navbar Type</h5>
-                        <p class="text-xs text-white-dark">Sticky or Floating.</p>
+                        <h5 class="mb-1 text-base leading-none text-white-dark">Navbar Türü</h5>
+                        <p class="text-xs text-white-dark">Yapışkan veya Yüzen.</p>
                         <div class="mt-3 flex items-center gap-3 text-primary">
                             <label class="mb-0 inline-flex">
                                 <input x-model="$store.app.navbar" type="radio" value="navbar-sticky" class="form-radio" @change="$store.app.toggleNavbar()" />
-                                <span>Sticky</span>
+                                <span>Yapışkan</span>
                             </label>
                             <label class="mb-0 inline-flex">
                                 <input
@@ -334,33 +334,16 @@
                                     class="form-radio"
                                     @change="$store.app.toggleNavbar()"
                                 />
-                                <span>Floating</span>
+                                <span>Yüzen</span>
                             </label>
                             <label class="mb-0 inline-flex">
                                 <input x-model="$store.app.navbar" type="radio" value="navbar-static" class="form-radio" @change="$store.app.toggleNavbar()" />
-                                <span>Static</span>
+                                <span>Statik</span>
                             </label>
                         </div>
                     </div>
 
-                    <div class="mb-3 rounded-md border border-dashed border-[#e0e6ed] p-3 dark:border-[#1b2e4b]">
-                        <h5 class="mb-1 text-base leading-none dark:text-white">Router Transition</h5>
-                        <p class="text-xs text-white-dark">Animation of main content.</p>
-                        <div class="mt-3">
-                            <select x-model="$store.app.animation" class="form-select border-primary text-primary" @change="$store.app.toggleAnimation()">
-                                <option value="">None</option>
-                                <option value="animate__fadeIn">Fade</option>
-                                <option value="animate__fadeInDown">Fade Down</option>
-                                <option value="animate__fadeInUp">Fade Up</option>
-                                <option value="animate__fadeInLeft">Fade Left</option>
-                                <option value="animate__fadeInRight">Fade Right</option>
-                                <option value="animate__slideInDown">Slide Down</option>
-                                <option value="animate__slideInLeft">Slide Left</option>
-                                <option value="animate__slideInRight">Slide Right</option>
-                                <option value="animate__zoomIn">Zoom In</option>
-                            </select>
-                        </div>
-                    </div>
+
                 </div>
             </nav>
         </div>

@@ -18,6 +18,7 @@ Route::middleware([AuthStatusMiddleware::class])->group(
         Route::get("/invoicelist", [InvoiceListController::class, "index"])->name('invoiceList');
         Route::post('/invoicelist', [InvoiceListController::class, 'delete'])->name('invoiceList.delete');
         Route::get('/userprofile', [ProfileController::class, 'index'])->name('userProfile');
+        Route::post('/userprofile', [ProfileController::class, 'update'])->name('userProfile.post');
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get('/add', [AddController::class, 'index'])->name('add');
         Route::post('/add', [AddController::class, 'store'])->name('add.post');
